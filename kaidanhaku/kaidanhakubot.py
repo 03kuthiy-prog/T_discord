@@ -8,10 +8,8 @@ import asyncio
 import os
 from dotenv import load_dotenv
 
-# .env ファイルを読み込む
-load_dotenv()
-
-TOKEN = os.getenv('DISCORD_TOKEN')
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+TOKEN =os.getenv('DISCORD_TOKEN')
 
 class MyBot(commands.Bot):
     def __init__(self, *args, **kwargs):
@@ -104,7 +102,7 @@ async def createResult(interaction: discord.Interaction,):
         await interaction.channel.send(sct)
     await interaction.channel.send(f"怪談白物語: {bot.progSess.name}\n"
                                    +f"シナリオ参照元: {bot.progSess.url}"
-                                   +"※このスレッドは10秒ほどでクローズドされます。"
+                                   +"\n※このスレッドは10秒ほどでクローズドされます。"
                                    )
     await asyncio.sleep(10)
     await interaction.channel.edit(archived=True)

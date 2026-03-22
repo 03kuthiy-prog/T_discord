@@ -1,10 +1,15 @@
 import discord
+import os
+from dotenv import load_dotenv
 
 from discord.ext import commands
 from discord import app_commands
 
+# .env ファイルを読み込む
+load_dotenv()
+
 # Botのトークン
-TOKEN = 'MTQ4NDQxMTkxMTgwOTUzNjA4MA.GjfMWw.Eeoslqv8hFNhZyMaZ31iW5NCPjY19G05d1RcOs'
+TOKEN = os.getenv('DISCORD_TOKEN_MAIN')
 # Botのコマンドプレフィックスと設定
 intents = discord.Intents.default()
 intents.message_content = True

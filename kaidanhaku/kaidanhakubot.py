@@ -5,8 +5,13 @@ from discord import Member
 import session
 from session import Session
 import asyncio
+import os
+from dotenv import load_dotenv
 
-TOKEN = "MTQ4NDQ5NjY3NzUxMDMyMDIzOQ.GteSVR.feS3Sts28v8V0Cpbh7Dr8YTmOz3ir7XwZoh8Lk"
+# .env ファイルを読み込む
+load_dotenv()
+
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 class MyBot(commands.Bot):
     def __init__(self, *args, **kwargs):

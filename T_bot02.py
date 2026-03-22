@@ -2,14 +2,16 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from discord import Member
-
+import os
+from dotenv import load_dotenv
 
 import Session_mdl
 from Session_mdl import Session
 
+# .env ファイルを読み込む
+load_dotenv()
 
-
-TOKEN = 'MTQ4NDQxMTkxMTgwOTUzNjA4MA.GjfMWw.Eeoslqv8hFNhZyMaZ31iW5NCPjY19G05d1RcOs'
+TOKEN = os.getenv('DISCORD_TOKEN_MAIN')
 
 class MyBot(commands.Bot):
     async def setup_hook(self):

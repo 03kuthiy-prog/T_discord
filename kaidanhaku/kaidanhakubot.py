@@ -90,9 +90,6 @@ async def change(interaction: discord.Interaction,old_word:str,new_word:str,rewr
         f"{old_word}はキーワード{kwr}"
     )
     await interaction.response.send_message(mess)
-    #await interaction.followup.send(f"そうでした そうでした\n{old_word} ではなく {new_word} でした")
-    #kwr="です" if bot.addChangeWord(old_word,new_word) else "ではありません"
-    #await interaction.followup.send(f"{old_word}はキーワード{kwr}")
     if rewrite_flg :
         await interaction.channel.send(bot.getUpdated())
 
